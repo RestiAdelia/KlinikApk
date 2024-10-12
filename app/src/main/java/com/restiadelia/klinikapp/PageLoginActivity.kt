@@ -2,30 +2,29 @@ package com.restiadelia.klinikapp
 
 import android.content.Intent
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
 import android.widget.Button
+import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
-class MainActivity : AppCompatActivity() {
+class PageLoginActivity : AppCompatActivity() {
+    private lateinit var btnlogin:Button
+    private lateinit var  txtsignup :TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_page_login)
+        btnlogin=findViewById(R.id.btnlogin)
+       txtsignup=findViewById(R.id.txtsignup)
 
-        Handler(Looper.getMainLooper()).postDelayed({
-            val intent = Intent(this,StarterPage::class.java)
+
+        txtsignup.setOnClickListener(){
+            val intent= Intent(this,PageRegisterActivity::class.java)
             startActivity(intent)
-
-            finish()
-
-        },3000
-
-        )
+        }
 
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
