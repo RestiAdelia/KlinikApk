@@ -87,8 +87,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Sign Up"
-                android:backgroundTint="#30BF36" />
+                android:backgroundTint="#6CB419"
+                android:text="Sign Up" />
         </LinearLayout>
 
     </LinearLayout>

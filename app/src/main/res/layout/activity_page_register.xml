@@ -113,8 +113,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:backgroundTint="#16D120"
-                android:text="Sign in" />
+                android:backgroundTint="#2EE438"
+                android:text="Sign in"
+                android:textColor="#AFE96C" />
         </LinearLayout>
     </LinearLayout>
 

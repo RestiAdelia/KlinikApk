@@ -13,6 +13,12 @@
         android:theme="@style/Theme.Klinikapp"
         tools:targetApi="31">
         <activity
+            android:name=".screen.HomeDoktorActivity"
+            android:exported="false" />
+        <activity
+            android:name=".listdoktorActivity"
+            android:exported="false" />
+        <activity
             android:name=".PageRegisterActivity"
             android:exported="false" />
         <activity
