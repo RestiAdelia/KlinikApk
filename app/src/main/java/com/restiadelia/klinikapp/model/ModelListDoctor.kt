@@ -8,6 +8,6 @@ data class ModelListDoctor(
     var spesiesDoctor: String,
     var jumlahReting: String,
     var angkarating: String,
-    var imgbintang: Int
+   // var imgbintang: Int
 )
 
