@@ -1,6 +1,7 @@
 package com.restiadelia.klinikapp.model
 
 data class ModelMenuIcon(
-    var namaMenu: String,
-    var imgMenu: Int
+
+    var imgMenu: Int,
+    var namaMenu: String
 )

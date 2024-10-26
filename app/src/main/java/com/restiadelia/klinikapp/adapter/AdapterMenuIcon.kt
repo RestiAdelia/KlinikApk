@@ -15,7 +15,7 @@ class AdapterMenuIcon(
 ): RecyclerView.Adapter<AdapterMenuIcon.MyviewHolder>(){
     class MyviewHolder(itemView : View) : RecyclerView.ViewHolder(itemView) {
         var imgMenuIcon : ImageView = itemView.findViewById(R.id.imgIcon)
-        var txtNamaMenu : TextView = itemView.findViewById(R.id.txticon)
+        var txtNamaMenu : TextView = itemView.findViewById(R.id.txtNamaIcon)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyviewHolder {

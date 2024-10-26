@@ -6,23 +6,30 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.restiadelia.klinikapp.R
 import com.restiadelia.klinikapp.adapter.AdapterListDoktor
+import com.restiadelia.klinikapp.adapter.AdapterMenuIcon
 import com.restiadelia.klinikapp.model.ModelListDoctor
+import com.restiadelia.klinikapp.model.ModelMenuIcon
 
 class HomeDoctorActivity : AppCompatActivity() {
     private var rv_list_doctor : RecyclerView? = null
+    private var rv_icon_menu : RecyclerView? = null
     private var homeDoctorAdapter : AdapterListDoktor? = null
+    private var homeMenuIcon : AdapterMenuIcon? = null
 
     private var doctorlist = mutableListOf<ModelListDoctor>()
+    private var menuIcon = mutableListOf<ModelMenuIcon>()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_home_doctor)
-        rv_list_doctor = findViewById(R.id.rv_doctor)
+        rv_list_doctor = findViewById(R.id.rv_dokter)
+        rv_icon_menu=findViewById(R.id.rv_icon)
 
         doctorlist = ArrayList()
         homeDoctorAdapter = AdapterListDoktor(doctorlist)
@@ -31,7 +38,15 @@ class HomeDoctorActivity : AppCompatActivity() {
         rv_list_doctor!!.layoutManager = layoutManager
         rv_list_doctor!!.adapter = homeDoctorAdapter
 
+        menuIcon = ArrayList()
+        homeMenuIcon = AdapterMenuIcon(menuIcon)
+
+        val layoutManager2: RecyclerView.LayoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL,false)
+        rv_icon_menu!!.layoutManager = layoutManager2
+        rv_icon_menu!!.adapter = homeMenuIcon
+
         prepareDataDoctor()
+        prepareMenuIcon()
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -39,6 +54,31 @@ class HomeDoctorActivity : AppCompatActivity() {
             insets
         }
     }
+
+    private fun prepareMenuIcon() {
+        var itemMenuIcon = ModelMenuIcon(
+        R.drawable.icon_tooth,
+            "Ikon Gigi"
+        )
+        menuIcon.add(itemMenuIcon)
+        itemMenuIcon = ModelMenuIcon(
+            R.drawable.icon_eye,
+            "Ikon Mata"
+        )
+        menuIcon.add(itemMenuIcon)
+        itemMenuIcon = ModelMenuIcon(
+            R.drawable.icon_heart,
+            "Ikon Mata "
+        )
+        menuIcon.add(itemMenuIcon)
+        itemMenuIcon = ModelMenuIcon(
+            R.drawable.icon_heart,
+            "Ikon Mata "
+        )
+
+        menuIcon.add(itemMenuIcon)
+    }
+
     private fun prepareDataDoctor() {
         var itemDoctors = ModelListDoctor(
             R.drawable.dokterr1,
