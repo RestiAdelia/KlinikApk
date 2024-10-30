@@ -1,12 +1,13 @@
 package com.restiadelia.klinikapp.adapter
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import android.widget.RatingBar
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.restiadelia.klinikapp.PageDokterActivity
 import com.restiadelia.klinikapp.R
 import com.restiadelia.klinikapp.model.ModelListDoctor
 
@@ -39,5 +40,19 @@ class AdapterListDoktor(
         holder.spesialis.text = currentItem.spesiesDoctor
         holder.txtJumlahRating.text = currentItem.jumlahReting
         holder.txtrating.text = currentItem.angkarating
+
+        // Set click listener untuk item
+        holder.itemView.setOnClickListener {
+            // Buat Intent untuk menuju PageDokterActivity
+            val intent = Intent(holder.itemView.context, PageDokterActivity::class.java)
+            // Kirim data yang diperlukan ke Activity berikutnya
+            intent.putExtra("imageResId", currentItem.imgDoctor)
+            intent.putExtra("namaDokter", currentItem.namaDoctor)
+            intent.putExtra("spesialis", currentItem.spesiesDoctor)
+            intent.putExtra("jumlahRating", currentItem.jumlahReting)
+            intent.putExtra("rating", currentItem.angkarating)
+            // Mulai activity
+            holder.itemView.context.startActivity(intent)
+        }
     }
 }
